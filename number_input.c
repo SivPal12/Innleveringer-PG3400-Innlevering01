@@ -13,10 +13,12 @@ int main (int argc, char *argv[]) {
   }
   readIntsFromFile(argv[1], pIntegers);
 
+  // Print the results
   printf("%d", pIntegers[0]);
   for (int i= 1; i < integersCount; i++) {
     printf(" %d", pIntegers[i]);
   }
+  printf("\nThe file contained %d integers.\n", integersCount);
 }
 
 void readIntsFromFile(char filename[], int *store) {
