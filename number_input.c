@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 void readIntsFromFile(char filename[], int *store);
+void sortIntegers(int *toSort, int size);
 
 int *pIntegers, integersCount;
 const int dynamicArraySizeModifier = 10;
@@ -12,6 +13,8 @@ int main (int argc, char *argv[]) {
     return -1;
   }
   readIntsFromFile(argv[1], pIntegers);
+
+  sortIntegers(pIntegers, integersCount);
 
   // Print the results
   printf("%d", pIntegers[0]);
@@ -50,5 +53,19 @@ void readIntsFromFile(char filename[], int *store) {
       printf("realloc failed\n");
       return;
     }
+  }
+}
+
+void sortIntegers(int *toSort, int size) {
+  int max = size - 1, tmp;
+  for (int i = 0; i < size; i++) {
+    for (int j = 0; j < max; j++) {
+      if (toSort[j] > toSort[j+1]) {
+        tmp = toSort[j];
+        toSort[j] = toSort[j+1];
+        toSort[j+1] = tmp;
+      }
+    }
+    max--;
   }
 }
