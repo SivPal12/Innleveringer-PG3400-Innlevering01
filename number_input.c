@@ -3,6 +3,7 @@
 
 void readIntsFromFile(char filename[], int *store);
 void sortIntegers(int *toSort, int size);
+void search(int, int*);
 
 int *pIntegers, integersCount;
 const int dynamicArraySizeModifier = 10;
@@ -22,6 +23,22 @@ int main (int argc, char *argv[]) {
     printf(" %d", pIntegers[i]);
   }
   printf("\nThe file contained %d integers.\n", integersCount);
+
+  printf("Please input an integer for search: ");
+  int input;
+  scanf("%d", &input);
+  if (input == 0) {
+    printf("Input was '0', exiting.");
+    return 0;
+  }
+  int *result = malloc(sizeof(int));
+  *result = -1;
+  search(input, result);
+  if (*result < 0) {
+    printf("%d not found", input);
+  } else {
+    printf("'%d' found at index: %d", input, *result);
+  }
 }
 
 void readIntsFromFile(char filename[], int *store) {
@@ -67,5 +84,14 @@ void sortIntegers(int *toSort, int size) {
       }
     }
     max--;
+  }
+}
+
+void search(int searchFor, int *result) {
+  for (int i = 0; i < integersCount; i++) {
+    if (pIntegers[i] == searchFor) {
+      *result = i;
+      return;
+    }
   }
 }
