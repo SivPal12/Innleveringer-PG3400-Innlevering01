@@ -38,6 +38,10 @@ int main (int argc, char *argv[]) {
   } else {
     printf("'%d' found at index: %d", input, *result);
   }
+
+  // Cleanup. Not sure if this is needed? Google said it depends on the OS.
+  free(pIntegers);
+  free(result);
 }
 
 void readIntsFromFile(char filename[], int *store) {
