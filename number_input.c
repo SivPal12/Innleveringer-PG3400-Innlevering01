@@ -9,8 +9,8 @@ int *pIntegers, integersCount;
 const int dynamicArraySizeModifier = 10;
 
 int main (int argc, char *argv[]) {
-  if (argc <= 1) {
-    printf("Missing file name argument!");
+  if (argc != 2) {
+    printf("Usage: %s FILENAME\n", argv[0]);
     return -1;
   }
   readIntsFromFile(argv[1], pIntegers);
