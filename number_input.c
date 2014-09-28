@@ -4,7 +4,7 @@
 void readIntsFromFile(char filename[], int *store);
 
 int *pIntegers, integersCount;
-int dynamicArraySizeModifier = 10;
+const int dynamicArraySizeModifier = 10;
 
 int main (int argc, char *argv[]) {
   if (argc <= 1) {
